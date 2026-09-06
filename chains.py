@@ -21,8 +21,10 @@ llm = ChatGoogleGenerativeAI(
 
 # Transforms the LLM response to a dictionary
 parser = JsonOutputToolsParser(return_id=True)
+#Parses the response to AnswerQuestion object
 parser_pydantic = PydanticToolsParser(tools=[AnswerQuestion])
 
+#partial helps in setting values to the placeholders
 actor_prompt_template = ChatPromptTemplate.from_messages([
     (
         "system",
